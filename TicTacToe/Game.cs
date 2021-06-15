@@ -59,12 +59,14 @@ namespace TicTacToe
 
         public void IsWinCondition(Cell[][] cellStructure)
         {
-            foreach (var structure in cellStructure)
+            for (int i = 0; i < cellStructure.Length; i++)
             {
+                Cell[] cells = cellStructure[i];
                 int player1Count = 0;
                 int player2Count = 0;
-                foreach (var cell in structure)
+                for (int j = 0; j < cells.Length; j++)
                 {
+                    Cell cell = cells[j];
                     if (cell.IsMarkedByPlayer1) player1Count++;
                     if (cell.IsMarkedByPlayer2) player2Count++;
                 }
@@ -73,7 +75,7 @@ namespace TicTacToe
             }
         }
 
-        public void PrintWinner()
+        private void PrintWinner()
         {
             Console.WriteLine($"{Winner.PlayerUserName} wins.");
         }
