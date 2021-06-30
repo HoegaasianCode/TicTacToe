@@ -6,8 +6,8 @@ namespace TicTacToe
     {
         private readonly Cell[][] _rows;
         private readonly Cell[][] _columns;
-        private readonly Player Player1;
-        private readonly Player Player2;
+        private readonly Player _player1;
+        private readonly Player _player2;
         private Player winner;
 
         public Game(Cell[][] rows, Cell[][] columns,
@@ -15,8 +15,8 @@ namespace TicTacToe
         {
             _rows = rows;
             _columns = columns;
-            Player1 = player1;
-            Player2 = player2;
+            _player1 = player1;
+            _player2 = player2;
             RunGame();
         }
 
@@ -52,8 +52,8 @@ namespace TicTacToe
                     if (cell.IsMarkedByPlayer1) player1Count++;
                     if (cell.IsMarkedByPlayer2) player2Count++;
                 }
-                if (player1Count == 3) winner = Player1;
-                if (player2Count == 3) winner = Player2;
+                if (player1Count == 3) winner = _player1;
+                if (player2Count == 3) winner = _player2;
             }
         }
 
