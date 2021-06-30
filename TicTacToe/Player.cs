@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +9,30 @@ namespace TicTacToe
     class Player
     {
         public int PlayerNo;
-        public readonly string PlayerUserName;
-        public int MatchesWon;
+        public readonly string UserName;
+        private readonly Cell[] _cells;
 
-        public Player(int playerNo, string playerNumber)
+        public Player(int playerNo, string playerNumber, Cell[] cells)
         {
             PlayerNo = playerNo;
-            PlayerUserName = playerNumber;
-            MatchesWon = 0;
+            UserName = playerNumber;
+            _cells = cells;
+        }
+
+        public void GetCoordinate()
+        {
+            Console.WriteLine($"{UserName}: Enter a coordinate");
+            string coordinate = Console.ReadLine();
+            Move(coordinate);
+        }
+
+        private void Move(string coordinate)
+        {
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                Cell cell = _cells[i];
+                if (cell.Coordinate == coordinate) cell.SetPlayerMove(this);
+            }
         }
     }
 }
