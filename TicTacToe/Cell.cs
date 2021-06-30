@@ -19,7 +19,7 @@ namespace TicTacToe
             IsMarkedByPlayer2 = false;
         }
 
-        public void SetPlayer(Player player)
+        public void SetPlayerMove(Player player)
         {
             if (player.PlayerNo == 1) IsMarkedByPlayer1 = true;
             if (player.PlayerNo == 2) IsMarkedByPlayer2 = true;
