@@ -19,11 +19,11 @@ namespace TicTacToe
             _cells = cells;
         }
 
-        public void GetCoordinate()
+        public string GetCoordinate()
         {
             Console.WriteLine($"{UserName}: Enter a coordinate");
             string coordinate = Console.ReadLine();
-            Move(coordinate);
+            return coordinate;
         }
 
         private void Move(string coordinate)
