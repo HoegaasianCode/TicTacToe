@@ -22,13 +22,16 @@ namespace TicTacToe
 
         private void RunGame()
         {
+            string coordinate;
             while (true)
             {
-                Player1.GetCoordinate();
+                coordinate = _player1.GetCoordinate();
+                _player1.Move(coordinate);
                 IsWinCondition(_rows);
                 IsWinCondition(_columns);
                 if (winner != null) break;
-                Player2.GetCoordinate();
+                coordinate = _player2.GetCoordinate();
+                _player2.Move(coordinate);
                 IsWinCondition(_rows);
                 IsWinCondition(_columns);
                 if (winner != null) break;
